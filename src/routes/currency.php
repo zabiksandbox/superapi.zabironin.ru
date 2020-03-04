@@ -22,7 +22,10 @@ $app->add(function ($req, $res, $next) {
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
             ->withHeader('Content-Type', 'application/json');
 });
-
+$app->get('/', function (Request $request, Response $response) {
+    $response->getBody()->write("So empty, so dark :(");
+    return $response;
+});
 // Get All currency
 $app->get('/currencies', function(Request $request, Response $response){
 	global $db;
@@ -65,12 +68,4 @@ $app->get('/currency/{id}', function(Request $request, Response $response){
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
-});
-
-// update  currencies
-$app->get('/update', function(Request $request, Response $response){
-    global $db;
-
-    
-
 });

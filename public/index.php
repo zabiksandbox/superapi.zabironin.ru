@@ -8,12 +8,8 @@ require '../src/config/db.php';
 
 
 $app = new \Slim\App;
-$app->get('/', function (Request $request, Response $response) {
-    $response->getBody()->write("So empty, so dark :(");
-    return $response;
-});
 
-// Customer Routes
+// Currency Routes
 require '../src/routes/currency.php';
 
 $app->run();
